@@ -16,7 +16,12 @@ pipeline {
             steps {
                 //sh 'terraform apply --auto-approve'
                 sh 'terraform plan -out=plan'
+                //sh 'git add plan'
+                //sh 'git commit -m "add plan"'
+                //sh 'git push origin main'
+                sh 'terraform show plan'
             }
         }
     }
 }
+
