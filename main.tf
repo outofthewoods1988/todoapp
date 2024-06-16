@@ -1,7 +1,7 @@
 # main.tf
 provider "google" {
   credentials = "infinite-zephyr-419603-707c097f18a5.json"
-  project     = "My First Project"
+  project     = "infinite-zephyr-419603"
   region      = "asia-east1"
 }
 
