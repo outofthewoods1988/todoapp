@@ -37,13 +37,13 @@ pipeline {
                 //sh 'git push origin main'
             }
         }
-        stage('terraform delete') {
+        stage('terraform destroy') {
             when {
-                expression { params.ACTION == 'delete' }
+                expression { params.ACTION == 'destroy' }
             }
             steps {
                 //sh 'terraform apply --auto-approve'
-                sh 'terraform delete'
+                sh 'terraform destroy'
                 //sh 'git add plan'
                 //sh 'git commit -m "add plan"'
                 //sh 'git push origin main'
