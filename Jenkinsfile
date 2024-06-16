@@ -43,7 +43,7 @@ pipeline {
             }
             steps {
                 //sh 'terraform apply --auto-approve'
-                sh 'terraform destroy'
+                sh 'terraform destroy --auto-approve'
                 //sh 'git add plan'
                 //sh 'git commit -m "add plan"'
                 //sh 'git push origin main'
