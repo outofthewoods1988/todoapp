@@ -12,7 +12,10 @@ pipeline {
                 sh 'terraform init'
             }
         }
-        stage('terraform apply') {
+        stage('terraform plan') {
+            when {
+                expression { params.ACTION == 'plan' }
+            }
             steps {
                 //sh 'terraform apply --auto-approve'
                 sh 'terraform plan -out=plan'
@@ -20,6 +23,18 @@ pipeline {
                 //sh 'git commit -m "add plan"'
                 //sh 'git push origin main'
                 sh 'terraform show plan'
+            }
+        }
+        stage('terraform apply') {
+            when {
+                expression { params.ACTION == 'apply' }
+            }
+            steps {
+                //sh 'terraform apply --auto-approve'
+                sh 'terraform apply plan'
+                //sh 'git add plan'
+                //sh 'git commit -m "add plan"'
+                //sh 'git push origin main'
             }
         }
     }
