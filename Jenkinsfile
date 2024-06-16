@@ -37,7 +37,7 @@ pipeline {
                 //sh 'git push origin main'
             }
         }
-        stage('terraform apply') {
+        stage('terraform delete') {
             when {
                 expression { params.ACTION == 'delete' }
             }
