@@ -37,6 +37,18 @@ pipeline {
                 //sh 'git push origin main'
             }
         }
+        stage('terraform apply') {
+            when {
+                expression { params.ACTION == 'delete' }
+            }
+            steps {
+                //sh 'terraform apply --auto-approve'
+                sh 'terraform delete'
+                //sh 'git add plan'
+                //sh 'git commit -m "add plan"'
+                //sh 'git push origin main'
+            }
+        }
     }
 }
 
